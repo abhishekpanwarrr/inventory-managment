@@ -7,6 +7,7 @@ import Header from "../(components)/Header";
 import Rating from "../(components)/Rating/inde";
 import CreateProductModal from "./CreateProductModal";
 import { ProductFormData } from "@/types";
+import Image from "next/image";
 
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -77,7 +78,15 @@ const Products = () => {
               className="border shadow p-4 rounded-md max-w-full w-full mx-auto"
             >
               <div className="flex items-center flex-col">
-                img
+                <Image
+                  src={`https://inventorymanagment.s3.ap-south-1.amazonaws.com//product${
+                    Math.floor(Math.random() * 3) + 1
+                  }.png`}
+                  alt={product.name}
+                  width={150}
+                  height={150}
+                  className="mb-3 rounded-2xl w-36 h-36"
+                />
                 <h3 className="text-lg text-gray-900 font-semibold">
                   {product.name}
                 </h3>
